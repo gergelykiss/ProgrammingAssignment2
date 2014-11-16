@@ -1,0 +1,16 @@
+{
+    "contents" : "## Put comments here that give an overall description of what your\n## functions do\n\n## Write a short comment describing this function\n## set sets the value of the input matrix\n## get gets the value of the input matrix\n## setsolve sets the value of the inverse of the matrix\n## getsolve gets the value of the inverse of the matrix\n\nmakeCacheMatrix <- function(x = matrix()) {\n\n  m <- NULL\n  set <- function(y) {\n    x <<- y\n    m <<- NULL\n  }\n  get <- function() x\n  setsolve <- function(solve) m <<- solve\n  getsolve <- function() m\n  list(set = set, get = get,\n       setsolve = setsolve,\n       getsolve = getsolve)\n  \n}\n\n## Write a short comment describing this function\n## function calculates the inverse of the input matrix and caches the result. If it finds an already existing inverse, then it gets the result from the cache instead of recalculating.\n\ncacheSolve <- function(x, ...) {\n        ## Return a matrix that is the inverse of 'x'\n\n  m <- x$getsolve()\n  if(!is.null(m)) {\n    message(\"getting cached data\")\n    return(m)\n  }\n  data <- x$get()\n  m <- solve(data, ...)\n  x$setsolve(m)\n  m\n  \n}\n",
+    "created" : 1416129009979.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2632315602",
+    "id" : "B0A7E60D",
+    "lastKnownWriteTime" : 1416130867,
+    "path" : "C:/Projects/gitrepo/ProgrammingAssignment2/cachematrix.R",
+    "project_path" : "cachematrix.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
